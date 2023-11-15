@@ -1,6 +1,6 @@
-import { Denops } from "https://deno.land/x/denops_std@v3.12.2/mod.ts";
-import * as fn from "https://deno.land/x/denops_std@v3.12.2/function/mod.ts";
-import { execute } from "https://deno.land/x/denops_std@v3.12.2/helper/mod.ts";
+import { Denops } from "https://deno.land/x/denops_std@v5.0.2/mod.ts";
+import * as fn from "https://deno.land/x/denops_std@v5.0.2/function/mod.ts";
+import { execute } from "https://deno.land/x/denops_std@v5.0.2/helper/mod.ts";
 import {
   assert,
   is,
