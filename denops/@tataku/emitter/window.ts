@@ -5,7 +5,7 @@ import {
   assert,
   is,
   PredicateType,
-} from "https://deno.land/x/unknownutil@v3.10.0/mod.ts";
+} from "https://deno.land/x/unknownutil@v3.11.0/mod.ts";
 
 const isOption = is.ObjectOf({
   cmd: is.String,
