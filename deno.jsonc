@@ -3,6 +3,9 @@
     "fmt": "deno fmt ./**/*.ts",
     "fmt:check": "deno fmt --check ./**/*.ts",
     "check": "deno check ./**/*.ts",
-    "lint": "deno lint ./**/*.ts"
+    "lint": "deno lint ./**/*.ts",
+    "docs": "deno task docs:vimdoc ; deno task docs:markdown",
+    "docs:vimdoc": "deno run -A https://pax.deno.dev/Omochice/podeno/cli.ts vimdoc --in README.pod --out doc/tataku-emitter-window.txt",
+    "docs:markdown": "deno run -A https://pax.deno.dev/Omochice/podeno/cli.ts markdown --in README.pod --out README.md"
   }
 }
