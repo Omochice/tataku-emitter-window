@@ -1,0 +1,64 @@
+---
+name: tataku-emitter-window
+description: The emitter module for tataku.vim
+--
+
+=pod
+
+=head1 tataku-emitter-window X<tataku-emitter-window>
+
+The emitter module that use window for tataku.vim.
+
+=head2 Contents X<tataku-emitter-window-contents>
+
+=over 0
+
+=item * L<Dependencies|tataku-emitter-window-dependencies>
+
+=item * L<Options|tataku-emitter-window-options>
+
+=item * L<Samples|tataku-emitter-window-samples>
+
+=back
+
+=head2 Dependencies X<tataku-emitter-window-dependencies>
+
+This plugin needs below:
+
+=over 0
+
+=item * L<denops.vim|https://github.com/vim-denops/denops.vim>
+
+=item * L<tataku.vim|https://github.com/Omochice/tataku.vim>
+
+=back
+
+=head2 Options X<tataku-emitter-window-options>
+
+This module has some options:
+
+=over 0
+
+=item * C<cmd> X<tataku-emitter-window-option-cmd>
+
+  Command name to open window.
+  Default: C<"enew">
+
+=back
+
+=head2 Samples X<tataku-emitter-window-samples>
+
+=begin vim
+
+let g:tataku_recipes = #{
+  \   sample: #{
+  \     emitter: #{
+  \       name: 'window',
+  \       options: #{ cmd: 'enew' },
+  \     },
+  \   },
+  \ }
+
+=end vim
+
+=cut
