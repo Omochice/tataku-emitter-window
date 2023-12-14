@@ -42,7 +42,7 @@ This module has some options:
 =item * C<cmd> X<tataku-emitter-window-option-cmd>
 
   Command name to open window.
-  Default: C<"enew">
+  Default: C<'enew'>
 
 =back
 
