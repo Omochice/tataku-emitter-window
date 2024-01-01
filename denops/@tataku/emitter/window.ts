@@ -1,6 +1,6 @@
 import { Denops } from "https://deno.land/x/denops_std@v5.2.0/mod.ts";
 import * as fn from "https://deno.land/x/denops_std@v5.2.0/function/mod.ts";
-import { execute } from "https://deno.land/x/denops_std@v5.2.0/helper/mod.ts";
+import { batch } from "https://deno.land/x/denops_std@v5.2.0/batch/mod.ts";
 import {
   assert,
   is,
@@ -8,19 +8,37 @@ import {
 } from "https://deno.land/x/unknownutil@v3.11.0/mod.ts";
 
 const isOption = is.ObjectOf({
-  cmd: is.String,
+  cmd: is.OptionalOf(is.String),
+  bufname: is.OptionalOf(is.String),
 });
 
 type Option = PredicateType<typeof isOption>;
 
-const defaultOption: Option = {
-  cmd: "enew",
+const defaultOption: Required<Option> = {
+  cmd: "edit",
+  bufname: "[scratch]",
 };
 
-const prepareWindow = async (denops: Denops, cmd: string): Promise<number> => {
-  await execute(denops, cmd);
-  const bufnr = await fn.bufnr(denops);
-  await fn.setbufvar(denops, bufnr, "&buftype", "nofile");
+const prepareBuffer = async (
+  denops: Denops,
+  bufname: string,
+): Promise<number> => {
+  const bufnr = await fn.bufadd(denops, bufname);
+  await batch(denops, async (denops) => {
+    await fn.bufload(denops, bufnr);
+    await fn.setbufvar(denops, bufnr, "&buftype", "nofile");
+    await fn.setbufvar(denops, bufnr, "&swapfile", false);
+    await fn.deletebufline(denops, bufnr, 1, "$");
+  });
+  return bufnr;
+};
+
+const prepareWindow = async (
+  denops: Denops,
+  option: Required<Option>,
+): Promise<number> => {
+  const bufnr = await prepareBuffer(denops, option.bufname);
+  await denops.cmd(`${option.cmd} +buffer${bufnr}`);
   return bufnr;
 };
 
@@ -32,7 +50,7 @@ const emitter = (denops: Denops, option = defaultOption) => {
       if (!state.isPrepared) {
         state.bufnr = await prepareWindow(
           denops,
-          option?.cmd ?? defaultOption.cmd,
+          { ...defaultOption, ...option },
         );
         state.isPrepared = true;
       }
