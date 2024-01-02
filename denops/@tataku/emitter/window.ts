@@ -60,7 +60,7 @@ const emitter = (denops: Denops, option = defaultOption) => {
         );
         state.isPrepared = true;
       }
-      const linenr = Math.max(await fn.line(denops, "$") - 1, 1);
+      const linenr = await fn.line(denops, "$");
       const lastLine = await fn.getbufline(denops, state.bufnr, linenr);
       const [currentLine, ...newLines] = chunk.join("").split(/\r?\n/);
 
