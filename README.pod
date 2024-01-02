@@ -42,7 +42,17 @@ This module has some options:
 =item * C<cmd> X<tataku-emitter-window-option-cmd>
 
   Command name to open window.
-  Default: C<'enew'>
+  Default: C<'edit'>
+
+=item * C<bufname> X<tataku-emitter-window-option-bufname>
+
+  Buffer name.
+  Default: C<'[scratch]'>
+
+=item * C<filetype> X<tataku-emitter-window-option-filetype>
+
+  Filetype
+  Default: C<''>
 
 =back
 
