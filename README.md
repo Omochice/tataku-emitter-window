@@ -22,7 +22,15 @@ This module has some options:
 - `cmd` 
 
   Command name to open window.
-  Default: `'enew'`
+  Default: `'edit'`
+- `bufname` 
+
+  Buffer name.
+  Default: `'[scratch]'`
+- `filetype` 
+
+  Filetype
+  Default: `''`
 
 ## Samples 
 
