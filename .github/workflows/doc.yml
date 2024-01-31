@@ -27,7 +27,7 @@ jobs:
           git commit -m "docs: Generate docs"
           git clean -fdx
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
           title: "docs: Update docs"
           body: |
