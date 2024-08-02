@@ -1,6 +1,6 @@
-import { Denops } from "jsr:@denops/std@7.0.1";
-import * as fn from "jsr:@denops/std@7.0.1/function";
-import { batch } from "jsr:@denops/std@7.0.1/batch";
+import { Denops } from "jsr:@denops/std@7.0.2";
+import * as fn from "jsr:@denops/std@7.0.2/function";
+import { batch } from "jsr:@denops/std@7.0.2/batch";
 import { assert, is, PredicateType } from "jsr:@core/unknownutil@3.18.1";
 
 const isOption = is.ObjectOf({
