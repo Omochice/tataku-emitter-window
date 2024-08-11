@@ -1,12 +1,17 @@
 import { Denops } from "jsr:@denops/std@7.0.3";
 import * as fn from "jsr:@denops/std@7.0.3/function";
 import { batch } from "jsr:@denops/std@7.0.3/batch";
-import { assert, is, PredicateType } from "jsr:@core/unknownutil@3.18.1";
+import {
+  as,
+  assert,
+  is,
+  type PredicateType,
+} from "jsr:@core/unknownutil@4.0.3";
 
 const isOption = is.ObjectOf({
-  cmd: is.OptionalOf(is.String),
-  bufname: is.OptionalOf(is.String),
-  filetype: is.OptionalOf(is.String),
+  cmd: as.Optional(is.String),
+  bufname: as.Optional(is.String),
+  filetype: as.Optional(is.String),
 });
 
 type Option = PredicateType<typeof isOption>;
