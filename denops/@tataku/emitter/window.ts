@@ -6,7 +6,7 @@ import {
   assert,
   is,
   type PredicateType,
-} from "jsr:@core/unknownutil@4.2.2";
+} from "jsr:@core/unknownutil@4.3.0";
 
 const isOption = is.ObjectOf({
   cmd: as.Optional(is.String),
