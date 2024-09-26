@@ -1,6 +1,6 @@
-import { Denops } from "jsr:@denops/std@7.1.1";
-import * as fn from "jsr:@denops/std@7.1.1/function";
-import { batch } from "jsr:@denops/std@7.1.1/batch";
+import { Denops } from "jsr:@denops/std@7.2.0";
+import * as fn from "jsr:@denops/std@7.2.0/function";
+import { batch } from "jsr:@denops/std@7.2.0/batch";
 import {
   as,
   assert,
